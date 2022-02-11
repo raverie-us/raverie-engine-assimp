@@ -530,14 +530,7 @@ void ResolveVertexDataArray(std::vector<T>& data_out, const Scope& source,
                 continue;
             }
             if (static_cast<size_t>(i) >= tempData.size()) {
-                //+WELDER
-                // Don't halt the scene process for out of range uv's.
-                /*
                 DOMError("index out of range",&GetRequiredElement(source,indexDataElementName));
-                */
-                data_out[next++] = T(0);
-                continue;
-                //-WELDER
             }
 
 			data_out[next++] = tempData[i];

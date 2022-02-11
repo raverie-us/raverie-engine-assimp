@@ -475,12 +475,11 @@ void ObjFileParser::getFace(aiPrimitiveType type) {
                 } else {
                     reportErrorTokenInFace();
                 }
+            } else {
+                //On error, std::atoi will return 0 which is not a valid value
+                delete face;
+                throw DeadlyImportError("OBJ: Invalid face indice");
             }
-            //+WELDER
-            // Assimp used to properly parse our Quad.obj file,
-            // however the recent addition of this error case caused it to fail.
-            //-WELDER
-
         }
         m_DataIt += iStep;
     }
