@@ -158,6 +158,8 @@ bool IOSystem::ComparePaths(const char *one, const char *second) const {
 // ------------------------------------------------------------------------------------------------
 // Convert a relative path into an absolute path
 inline static std::string MakeAbsolutePath(const char *in) {
+  return in;
+#if 0
     ai_assert(in);
     std::string out;
 #ifdef _WIN32
@@ -180,6 +182,7 @@ inline static std::string MakeAbsolutePath(const char *in) {
         out = in;
     }
     return out;
+#endif
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -221,3 +224,9 @@ std::string DefaultIOSystem::absolutePath(const std::string &path) {
 }
 
 // ------------------------------------------------------------------------------------------------
+
+extern "C" {
+extern __attribute__((__visibility__("default"))) void* __cxa_allocate_exception(size_t thrown_size) {}
+extern __attribute__((__visibility__("default"))) void __cxa_free_exception(void *thrown_exception) {}
+extern __attribute__((__visibility__("default"))) __attribute__((noreturn)) void __cxa_throw(void *thrown_exception, std::type_info *tinfo, void (*dest)(void *)) {}
+}
