@@ -224,9 +224,3 @@ std::string DefaultIOSystem::absolutePath(const std::string &path) {
 }
 
 // ------------------------------------------------------------------------------------------------
-
-extern "C" {
-extern __attribute__((__visibility__("default"))) void* __cxa_allocate_exception(size_t thrown_size) {}
-extern __attribute__((__visibility__("default"))) void __cxa_free_exception(void *thrown_exception) {}
-extern __attribute__((__visibility__("default"))) __attribute__((noreturn)) void __cxa_throw(void *thrown_exception, std::type_info *tinfo, void (*dest)(void *)) {}
-}
